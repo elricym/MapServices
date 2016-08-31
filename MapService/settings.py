@@ -15,17 +15,7 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-if 'aanx6afm1dtejr.ccypkmr0kys8.us-west-2.rds.amazonaws.com' in os.environ:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': os.environ['com_map_service'],
-            'USER': os.environ['client'],
-            'PASSWORD': os.environ['ym771992'],
-            'HOST': os.environ['aanx6afm1dtejr.ccypkmr0kys8.us-west-2.rds.amazonaws.com'],
-            'PORT': os.environ['3306'],
-        }
-    }
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -48,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'Appointments',
 ]
 
 MIDDLEWARE = [
@@ -91,6 +82,18 @@ DATABASES = {
     }
 }
 
+
+if 'aanx6afm1dtejr.ccypkmr0kys8.us-west-2.rds.amazonaws.com' in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': os.environ['com_map_service'],
+            'USER': os.environ['client'],
+            'PASSWORD': os.environ['ym771992'],
+            'HOST': os.environ['aanx6afm1dtejr.ccypkmr0kys8.us-west-2.rds.amazonaws.com'],
+            'PORT': os.environ['3306'],
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
