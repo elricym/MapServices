@@ -1,4 +1,5 @@
-*.pyc__pycache__sitevenvdb.sqlite3/static.DS_Store
+*.pyc__pycache__db.sqlite3/static.DS_Store
+
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
