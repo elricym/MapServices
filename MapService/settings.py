@@ -75,25 +75,25 @@ WSGI_APPLICATION = 'MapService.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+
+#if 'aanx6afm1dtejr.ccypkmr0kys8.us-west-2.rds.amazonaws.com' in os.environ:
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'com_map_service',
+        'USER': 'elricym',
+        'PASSWORD': 'ym771992',
+        'HOST': 'aanx6afm1dtejr.ccypkmr0kys8.us-west-2.rds.amazonaws.com',
+        'PORT': '3306',
     }
 }
-
-
-if 'aanx6afm1dtejr.ccypkmr0kys8.us-west-2.rds.amazonaws.com' in os.environ:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': os.environ['com_map_service'],
-            'USER': os.environ['client'],
-            'PASSWORD': os.environ['ym771992'],
-            'HOST': os.environ['aanx6afm1dtejr.ccypkmr0kys8.us-west-2.rds.amazonaws.com'],
-            'PORT': os.environ['3306'],
-        }
-    }
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators

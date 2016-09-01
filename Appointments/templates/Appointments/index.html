@@ -23,15 +23,31 @@
         var map;
 
         function initMap() {
-
+            var currLatLng = {
+                lat: {{ lat }},
+                lng: {{ lng }}
+            };
             map = new google.maps.Map(document.getElementById('map'), {
-                center: {
-                  lat: {{ lat }},
-                  lng: {{ lng }}
-                },
+                center: currLatLng,
                 zoom: 15
             });
+
+          addMarker(currLatLng, map);
+          google.maps.event.addListener(map, 'click', function(event) {
+              addMarker(event.latLng, map);
+          });
+
         }
+
+        function addMarker(location, map) {
+            var marker = new google.maps.Marker({
+                position: location,
+                label: labels[labelIndex++ % labels.length],
+                map: map
+            });
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASBVxPbc_Fo1LKVLeEmsdt4UHdS5O71E8&callback=initMap">
     </script>
