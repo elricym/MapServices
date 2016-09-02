@@ -7,15 +7,6 @@ import json
 
 # Create your models here.
 
-# class LocationModel(models.Model):
-#     def getLocationByID(self):
-#         url = ConstParams.GeolocationURL + "?key=" + ConstParams.GoogleApiKey
-#         locationRequest = {}
-#         locationRespose = requests.post(url, data=locationRequest)
-#         responseContent = json.loads(locationRespose.content)
-#         return responseContent
-
-
 class users(models.Model):
     id = models.IntegerField(primary_key=True)
     username = models.CharField(max_length = 200)
@@ -31,6 +22,12 @@ class users(models.Model):
         locationRespose = requests.post(url, data=locationRequest)
         responseContent = json.loads(locationRespose.content)
         return responseContent
+
+    def updateLocation(self, userId, lat, lng):
+        user = users.objects.get(id = userId)
+        user.latitude  = lat
+        user.longtitude = lng
+        user.save()
 
 class events(models.Model):
     id = models.IntegerField(primary_key=True)
