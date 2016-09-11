@@ -1,9 +1,9 @@
 *.pyc
 __pycache__
 db.sqlite3
-/static.DS_Store
 
-# Elastic Beanstalk Files
+/bower_components
+/static.DS_Store# Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml

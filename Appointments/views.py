@@ -1,17 +1,19 @@
 from django.shortcuts import render
-from .models import users
+from .models import users, events
 from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
     print request.GET
-    model = users()
-    location = model.getLocation()
+    location = users().getLocation()
     lat = location.get('location').get('lat')
     lng = location.get('location').get('lng')
     return render(request, 'Appointments/index.html', {'lat' : lat, 'lng' : lng})
 
-
-def test(request):
+def updateLocation(request):
     users().updateLocation(request.GET.get('userid'), request.GET.get('lat'), request.GET.get('lng'))
+    return HttpResponse(request.GET.get('q'))
+
+def newEventRequest(request):
+    events().newEventRequest(request.GET.get('userid'), request.GET.get('eventname'), request.GET.get('lat'), request.GET.get('lng'))
     return HttpResponse(request.GET.get('q'))
