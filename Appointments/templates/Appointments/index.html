@@ -33,7 +33,7 @@
                 <new-event-confirmation></new-event-confirmation>
             </div>
         </div>
-        <div id="map">
+        <div id="map" ng-init="vm.initializePositions()">
             <ng-map default-style="false" zoom="15" center="[{{lat}}, {{lng}}]" on-click="vm.newEventConfirmation()">
                 <marker ng-repeat="p in vm.positions" position="{[{p.lat}]}, {[{p.lng}]}" title="hello"></marker>
             </ng-map>

@@ -44,11 +44,19 @@ class events(models.Model):
         event = events(eventname = eventname, lat = lat, lng = lng)
         event.save()
 
+    def getEventsByEventIds(self, eventIds):
+        eventList = events.objects.filter(eventIds)
+        return eventList
+
 class user_event(models.Model):
     id = models.IntegerField(primary_key=True)
     event_id = models.IntegerField()
     user_id = models.IntegerField()
 
-    def getEventsByUserId(self, userId):
-        events = user_event.objects.filter(user_id = userId)
-        return events
+    def getEventsIdsByUserId(self, userId):
+        user_events = user_event.objects.filter(user_id = userId)
+        eventIdList = []
+        for e in user_events:
+            eventIdList.append(e.id)
+        print eventIdList
+        return eventIdList

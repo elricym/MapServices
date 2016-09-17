@@ -9,6 +9,17 @@ app.controller('mapEventsController', function($scope, $http, NgMap){
   vm.positions[0] = {lat:37.76, lng:-122.44};
   vm.placeCnt = 1;
 
+  vm.initializePositions = function(){
+      $http.get("/user/event/?userid=" + 1)
+        .then(function(response){
+          for (var position in response) {
+            if (object.hasOwnProperty(position)) {
+              alert(postion);
+            }
+          }
+        });
+  }
+
   vm.newEventConfirmation = function(event){
     $("#newEventsCreator").show();
     vm.addMarker(event);
@@ -29,7 +40,7 @@ app.controller('mapEventsController', function($scope, $http, NgMap){
   vm.confirm = function(){
     var eventName = $scope.event.eventname;
     $scope.event.eventname = "";
-    $http.get("/user/event/?userid=" + 1 +"&eventname="+ eventName+ "&lat=" + reqLat + "&lng=" + reqLng)
+    $http.get("/user/event/new/?userid=" + 1 +"&eventname="+ eventName+ "&lat=" + reqLat + "&lng=" + reqLng)
       .then(function(response){
         $scope.confirmationForm.$setPristine();
         $("#newEventsCreator").hide();
