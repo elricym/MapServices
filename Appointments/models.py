@@ -3,6 +3,7 @@ from django.db import models
 from django.http import StreamingHttpResponse
 from django.utils import timezone
 from ConstParams import ConstParams
+from django.core import serializers
 import requests
 import json
 
@@ -38,15 +39,16 @@ class events(models.Model):
     eventname = models.CharField(max_length = 200)
     lat = models.FloatField()
     lng = models.FloatField()
-    create_time = models.DateTimeField(default=timezone.now, blank=True)
+    create_time = models.DateTimeField(auto_now=True)
+    event_time = models.DateTimeField(default=timezone.now, blank=True)
 
     def newEventRequest(self, userId, eventname, lat, lng):
         event = events(eventname = eventname, lat = lat, lng = lng)
         event.save()
 
     def getEventsByEventIds(self, eventIds):
-        eventList = events.objects.filter(eventIds)
-        return eventList
+        eventList = events.objects.filter(id__in=eventIds)
+        return serializers.serialize("json", eventList)
 
 class user_event(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -58,5 +60,4 @@ class user_event(models.Model):
         eventIdList = []
         for e in user_events:
             eventIdList.append(e.id)
-        print eventIdList
         return eventIdList

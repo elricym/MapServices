@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import users, events, user_event
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
+from django.core import serializers
+import json
 
 # Create your views here.
 def index(request):
@@ -21,4 +23,4 @@ def newEventRequest(request):
 def getAllEvents(request):
     eventIdList = user_event().getEventsIdsByUserId(request.GET.get('userid'))
     eventList = events().getEventsByEventIds(eventIdList)
-    return HttpResponse(eventList)
+    return JsonResponse(eventList, safe=False)

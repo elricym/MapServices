@@ -1,6 +1,7 @@
-app.controller('mapEventsController', function($scope, $http, NgMap){
+app.controller('mapEventsController', function($scope, fetchEvents, $http, NgMap){
   var reqLat, reqLng;
   var vm = this;
+  var reclickOnMap = 0;
 
   NgMap.getMap().then(function(map){
     vm.map = map;
@@ -9,19 +10,26 @@ app.controller('mapEventsController', function($scope, $http, NgMap){
   vm.positions[0] = {lat:37.76, lng:-122.44};
   vm.placeCnt = 1;
 
+  // Initialize all existing event positions.
   vm.initializePositions = function(){
-      $http.get("/user/event/?userid=" + 1)
-        .then(function(response){
-          for (var position in response) {
-            if (object.hasOwnProperty(position)) {
-              alert(postion);
-            }
-          }
-        });
+      fetchEvents.success(function(data){
+        response = angular.fromJson(data);
+        alert(response.length);
+        for (var i = 0; i < response.length; i++){
+          vm.positions[vm.placeCnt] = {lat:response[i].fields.lat, lng: response[i].fields.lng};
+          vm.placeCnt++;
+        }
+        console.log(vm.positions);
+      });
+
   }
 
   vm.newEventConfirmation = function(event){
     $("#newEventsCreator").show();
+    reclickOnMap += 1;
+    if(reclickOnMap > 1){
+      vm.setMapOne(null);
+    }
     vm.addMarker(event);
     var ll = event.latLng;
     reqLat = ll.lat();
@@ -37,6 +45,7 @@ app.controller('mapEventsController', function($scope, $http, NgMap){
     vm.positions[vm.placeCnt - 1] = null;
     vm.placeCnt -= 1;
   }
+
   vm.confirm = function(){
     var eventName = $scope.event.eventname;
     $scope.event.eventname = "";
@@ -45,6 +54,8 @@ app.controller('mapEventsController', function($scope, $http, NgMap){
         $scope.confirmationForm.$setPristine();
         $("#newEventsCreator").hide();
       });
+
+    reclickOnMap = 0;
   };
 
   vm.cancel = function(){
@@ -52,5 +63,6 @@ app.controller('mapEventsController', function($scope, $http, NgMap){
     $scope.confirmationForm.$setPristine();
     $("#newEventsCreator").hide();
     vm.setMapOne(null);
+    reclickOnMap = 0;
   };
 });

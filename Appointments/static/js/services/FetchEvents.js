@@ -1,5 +1,5 @@
 app.factory('fetchEvents', ['$http', function($http) {
-  return $http.get('') 
+  return $http.get('/user/event/?userid='+1) 
             .success(function(data) {
               return data;
             })
