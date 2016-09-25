@@ -1,10 +1,12 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from .models import users, events, user_event
 from django.http import HttpResponse, JsonResponse
 from django.core import serializers
 import json
 
 # Create your views here.
+@login_required
 def index(request):
     print request.GET
     location = users().getLocation()
