@@ -35,3 +35,7 @@ ng-map {
 #newEventsCreator{
   display: none;
 }
+
+#userInformation{
+  display: none;
+}

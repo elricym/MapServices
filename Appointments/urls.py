@@ -7,5 +7,7 @@ urlpatterns = [
     url(r'^user/event/$', views.getAllEvents, name="user/event"),
     url(r'^user/event/new/$', views.newEventRequest, name='user/event/new'),
     url(r'^user/location/$', views.updateLocation, name='user/location'),
-    url(r'^accounts/login', auth_views.login)
+    url(r'^user/login/', views.login, name= "user/login" ),
+    url(r'^user/register/', views.register, name= "user/register" ),
+
 ]

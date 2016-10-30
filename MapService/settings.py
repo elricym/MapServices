@@ -28,7 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -83,14 +82,13 @@ WSGI_APPLICATION = 'MapService.wsgi.application'
 # }
 
 
-#if 'aanx6afm1dtejr.ccypkmr0kys8.us-west-2.rds.amazonaws.com' in os.environ:
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'com_map_service',
+        'NAME': 'mapservices',
         'USER': 'elricym',
         'PASSWORD': 'ym771992',
-        'HOST': 'aanx6afm1dtejr.ccypkmr0kys8.us-west-2.rds.amazonaws.com',
+        'HOST': '104.198.50.113',
         'PORT': '3306',
     }
 }
