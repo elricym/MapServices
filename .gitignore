@@ -96,9 +96,11 @@ __pycache__
 
 db.sqlite3
 
-/bower_components
+bower_components/
 
-/static
+node_modules/
+
+static/
 
 .DS_Store
 
