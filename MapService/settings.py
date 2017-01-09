@@ -87,10 +87,10 @@ WSGI_APPLICATION = 'MapService.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'com_map_service',
-        'USER': 'elricym',
+        'NAME': 'map_service',
+        'USER': 'ming',
         'PASSWORD': 'ym771992',
-        'HOST': 'aanx6afm1dtejr.ccypkmr0kys8.us-west-2.rds.amazonaws.com',
+        'HOST': 'localhost',
         'PORT': '3306',
     }
 }
