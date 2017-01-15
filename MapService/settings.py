@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'MapService.wsgi.application'
 # }
 
 
-#if 'aanx6afm1dtejr.ccypkmr0kys8.us-west-2.rds.amazonaws.com' in os.environ:
+# Using digital ocean local database.
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
