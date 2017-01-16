@@ -97,11 +97,18 @@ __pycache__
 db.sqlite3
 
 bower_components/
+<<<<<<< HEAD
+
+node_modules/
+=======
+>>>>>>> origin/Dev
 
 node_modules/
 
-/static
-
 .DS_Store
 
+<<<<<<< HEAD
 /.vscode
+=======
+/static
+>>>>>>> origin/Dev

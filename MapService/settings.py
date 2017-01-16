@@ -82,6 +82,7 @@ WSGI_APPLICATION = 'MapService.wsgi.application'
 # }
 
 
+<<<<<<< HEAD
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -89,6 +90,16 @@ DATABASES = {
         'USER': 'elricym',
         'PASSWORD': 'ym771992',
         'HOST': '104.198.50.113',
+=======
+# Using digital ocean local database.
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'map_service',
+        'USER': 'ming',
+        'PASSWORD': 'ym771992',
+        'HOST': 'localhost',
+>>>>>>> origin/Dev
         'PORT': '3306',
     }
 }

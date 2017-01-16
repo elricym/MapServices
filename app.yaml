@@ -1,3 +1,0 @@
-entrypoint: python
-runtime: python
-vm: true
