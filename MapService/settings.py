@@ -73,24 +73,6 @@ WSGI_APPLICATION = 'MapService.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
-
-<<<<<<< HEAD
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mapservices',
-        'USER': 'elricym',
-        'PASSWORD': 'ym771992',
-        'HOST': '104.198.50.113',
-=======
 # Using digital ocean local database.
 DATABASES = {
     'default': {
@@ -99,7 +81,6 @@ DATABASES = {
         'USER': 'ming',
         'PASSWORD': 'ym771992',
         'HOST': 'localhost',
->>>>>>> origin/Dev
         'PORT': '3306',
     }
 }
