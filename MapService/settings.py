@@ -26,7 +26,11 @@ SECRET_KEY = 'qeh26ss_yr^^d+f%(j#$9371vqa!*s9m&m3mq&%ksx$q=*j2_5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# The simplest case: just add the domain name(s) and IP addresses of your Django server
+# ALLOWED_HOSTS = [ 'example.com', '203.0.113.5']
+# To respond to 'example.com' and any subdomains, start the domain with a dot
+# ALLOWED_HOSTS = ['.example.com', '203.0.113.5']
+ALLOWED_HOSTS = ['198.199.101.120']
 
 # Application definition
 
@@ -35,8 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.messages',`
     'Appointments',
 ]
 
@@ -122,4 +125,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = 'static'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
