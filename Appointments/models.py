@@ -2,7 +2,7 @@ from __future__ import unicode_literals
 from django.db import models
 from django.http import StreamingHttpResponse
 from django.utils import timezone
-from ConstParams import ConstParams
+from .ConstParams import ConstParams
 from django.core import serializers
 import requests
 import json
@@ -75,7 +75,7 @@ class events(models.Model):
     create_time = models.DateTimeField(auto_now=True)
     event_datetime = models.DateTimeField(default=timezone.now, blank=True)
 
-    #TODO: format datetime into mysql timestamp
+    # TODO: format datetime into mysql timestamp
     def newEventRequest(self, userId, event_name, event_datetime, lat, lng):
         event = events(event_name = event_name, event_datetime = event_datetime, lat = lat, lng = lng)
         event.save()

@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.messages',`
+    'django.contrib.messages',
     'Appointments',
 ]
 
@@ -83,7 +83,7 @@ DATABASES = {
         'NAME': 'map_service',
         'USER': 'ming',
         'PASSWORD': 'ym771992',
-        'HOST': 'localhost',
+        'HOST': '198.199.101.120',
         'PORT': '3306',
     }
 }
