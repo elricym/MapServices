@@ -7,7 +7,7 @@ import json
 
 # Create your views here.
 def index(request):
-    print request.GET
+    print(request.GET)
     location = users().getLocation()
     lat = location.get('location').get('lat')
     lng = location.get('location').get('lng')
