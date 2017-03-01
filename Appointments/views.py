@@ -18,7 +18,8 @@ def updateLocation(request):
     return HttpResponse(request.GET.get('q'))
 
 def newEventRequest(request):
-    events().newEventRequest(request.GET.get('userid'), request.GET.get('eventname'), request.GET.get('eventdatetime'), request.GET.get('lat'), request.GET.get('lng'))
+    events().newEventRequest(request.POST.get('userid'), request.POST.get('eventname'), request.POST.get('eventdatetime'), 
+    request.POST.get('lat'), request.POST.get('lng'))
     return HttpResponse(request.GET.get('q'))
 
 def getAllEvents(request):

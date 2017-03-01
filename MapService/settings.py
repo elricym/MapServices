@@ -73,7 +73,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'MapService.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 # Using digital ocean local database.
